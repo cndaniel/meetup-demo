@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :meetup_relationship do
+    
+  end
   factory :comment do
     
   end
