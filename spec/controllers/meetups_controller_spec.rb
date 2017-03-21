@@ -46,6 +46,10 @@ RSpec.describe MeetupsController, type: :controller do
   end
 
   describe 'POST create' do
+    let(:user){ create(:user)}
+    before do
+      sign_in user
+    end
     context 'when meetup has a title' do
     it "creates a new meetup" do
       meetup = build(:meetup)
