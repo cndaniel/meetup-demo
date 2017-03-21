@@ -27,16 +27,21 @@ RSpec.describe MeetupsController, type: :controller do
   end
 
   describe 'get new' do
+    context 'when user login' do
+      let(:user) {create(:user)}
+      let(:course){ build(:course)}
+      before do
+        sign_in user
+        get :new
+      end
+
     it 'assigns @course' do
-      meetup = build(:meetup)
+
       get :new
       expect(assigns(:meetup)).to be_a_new(Meetup)
     end
     it 'renders template' do
-      meetup = build(:meetup)
-
-      get :new
-      expect(response).to render_template('new')
+      expect(response).to render_template("new")
     end
   end
 
@@ -73,6 +78,7 @@ RSpec.describe MeetupsController, type: :controller do
       expect(response).to render_template('new')
     end
   end
+end
 
 end
 
