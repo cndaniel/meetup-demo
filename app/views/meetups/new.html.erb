@@ -1,0 +1,10 @@
+<div class= 'col-md-12'>
+  <%= form_for @meetup do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :description %>
+  <div class="form-actions">
+    <%= f.submit "Submit", disable_with: 'Submitting…', class:"btn btn-primary" %>
+  </div>
+  <% end %>
+
+</div>
