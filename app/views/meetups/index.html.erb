@@ -1,0 +1,34 @@
+<div class= "col-md-12">
+  <div class="meetup">
+    <%= link_to 'create a meetpup', new_meet_up_path, method: :post, class: :'btn pull-right' %>
+  </div>
+
+  <table class='table'>
+  <th>
+    <tr>
+      <td>#</td>
+      <td>Title</td>
+      <td>Description</td>
+    </tr>
+  </th>
+
+
+  <tbody>
+    <% @meetups.each do |meetup| %>
+    <tr>
+      <td>#</td>
+      <td><=link_to meetup.title, meetup_path(meetup) %></td>
+      <td><%= meetup.description %></td>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+
+
+
+
+
+</div>
