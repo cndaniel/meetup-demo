@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -41,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem "rails-controller-testing"
   gem "factory_girl_rails"
+  gem 'shoulda-matchers'
 end
 
 group :development do

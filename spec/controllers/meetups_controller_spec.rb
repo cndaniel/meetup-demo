@@ -41,6 +41,7 @@ RSpec.describe MeetupsController, type: :controller do
   end
 
   describe 'POST create' do
+    context 'when meetup has a title' do
     it "creates a new meetup" do
       meetup = build(:meetup)
 
@@ -56,5 +57,23 @@ RSpec.describe MeetupsController, type: :controller do
       expect(response).to redirect_to meetups_path
     end
   end
+
+  context 'when meetup does not have a title' do
+    it "does not create a record when meetup doesn't have a title" do
+      expect do
+        post :create, params: { meetup: { description: "foo"} }
+      end.to change { Meetup.count}.by(0)
+    end
+
+    it "renders a new template when meetup without a title fails to create" do
+      meetup = build(:meetup)
+
+      post :create, params:{ meetup:{ description: "bar"}}
+
+      expect(response).to render_template('new')
+    end
+  end
+
+end
 
 end
