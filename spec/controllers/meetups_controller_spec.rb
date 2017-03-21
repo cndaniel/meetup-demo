@@ -65,6 +65,14 @@ RSpec.describe MeetupsController, type: :controller do
 
       expect(response).to redirect_to meetups_path
     end
+
+    it "creates a meetup for user" do
+      course = build(:meetup)
+
+      post :create, params: {meetup: attributes_for(:meetup)}
+
+      expect(Meetup.last.user).to eq(user)
+    end
   end
 
   context 'when meetup does not have a title' do
