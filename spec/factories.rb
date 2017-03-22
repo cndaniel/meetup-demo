@@ -8,15 +8,16 @@ FactoryGirl.define do
     content "I am an awesome comment."
   end
   sequence(:email){ |n| "user#{n}@example.com"}
+
   factory :user do
     email
     password "password"
     password_confirmation { password }
 
   end
-
+  sequence(:title){ |n| "meetup#{n}"}
   factory :meetup do
-    title "I am a handsome Meetup title"
+    title 
     description "I am an useless description."
     user
   end

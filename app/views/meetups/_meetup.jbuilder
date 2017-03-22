@@ -1,6 +1,6 @@
 json.id meetup.id
 json.title meetup.title
-json.descripition meetup.descripition
+json.description meetup.description
 json.user do
   email user.email
 end
