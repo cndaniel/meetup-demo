@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @meetup = Meetup.find(params[:meetup_id])
     @comment = @meetup.comments.new(comments_params)
     @comment.user = current_user
-    @comment.save
+    @comment.save!
     respond_to do |format|
       format.html { redirect_to @meetup }
       format.js
@@ -15,6 +15,6 @@ class CommentsController < ApplicationController
   private
 
   def comments_params
-    params.require(:comment).permit(:conetent)
+    params.require(:comment).permit(:content)
   end
 end

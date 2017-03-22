@@ -28,7 +28,7 @@ RSpec.describe MeetupsController, type: :controller do
 
   describe 'get new' do
     context 'when user login' do
-
+      let(:user) { create(:user) }
       before do
         sign_in user
         get :new

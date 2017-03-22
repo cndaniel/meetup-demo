@@ -15,9 +15,8 @@ FactoryGirl.define do
     password_confirmation { password }
 
   end
-  sequence(:title){ |n| "meetup#{n}"}
   factory :meetup do
-    title 
+    title "meetup"
     description "I am an useless description."
     user
   end
