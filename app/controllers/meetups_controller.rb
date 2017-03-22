@@ -21,7 +21,9 @@ class MeetupsController < ApplicationController
       render :new, alert: 'failed'
     end
   end
+
   private
+
   def meetup_params
     params.require(:meetup).permit(:title, :description)
   end
