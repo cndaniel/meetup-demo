@@ -18,7 +18,7 @@ RSpec.describe MeetupsController, type: :controller do
   end
 
   describe 'GET show' do
-    it 'assigns @course' do
+    it 'assigns @meetup' do
       meetup = create(:meetup)
       get :show, params: { id: meetup.id }
 
@@ -28,14 +28,13 @@ RSpec.describe MeetupsController, type: :controller do
 
   describe 'get new' do
     context 'when user login' do
-      let(:user) {create(:user)}
-      let(:course){ build(:course)}
+
       before do
         sign_in user
         get :new
       end
 
-    it 'assigns @course' do
+    it 'assigns @meetup' do
 
       get :new
       expect(assigns(:meetup)).to be_a_new(Meetup)
@@ -67,7 +66,7 @@ RSpec.describe MeetupsController, type: :controller do
     end
 
     it "creates a meetup for user" do
-      course = build(:meetup)
+      meetup = build(:meetup)
 
       post :create, params: {meetup: attributes_for(:meetup)}
 

@@ -1,9 +1,11 @@
 FactoryGirl.define do
   factory :meetup_relationship do
-    
+
   end
   factory :comment do
-    
+    user
+    meetup
+    content "I am an awesome comment."
   end
   sequence(:email){ |n| "user#{n}@example.com"}
   factory :user do
@@ -14,8 +16,8 @@ FactoryGirl.define do
   end
 
   factory :meetup do
-    title "Meetup title"
-    description "description."
+    title "I am a handsome Meetup title"
+    description "I am an useless description."
     user
   end
 end
