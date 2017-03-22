@@ -1,6 +1,6 @@
 <div class= "col-md-12">
   <div class="meetup">
-    <%= link_to 'create a meetpup', new_meetup_path, method: :post, class: :'btn pull-right' %>
+    <%= link_to 'create a meetpup', new_meetup_path, method: :get, class: :'btn pull-right' %>
   </div>
 
   <table class='table'>
@@ -17,7 +17,7 @@
     <% @meetups.each do |meetup| %>
     <tr>
       <td>#</td>
-      <td><=link_to meetup.title, meetup_path(meetup) %></td>
+      <td><%=link_to meetup.title, meetup_path(meetup) %></td>
       <td><%= meetup.description %></td>
 
     </tr>

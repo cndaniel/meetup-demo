@@ -1,7 +1,39 @@
 <div class="col-md-12">
-  <div class="meetups">
 
-  <h2><%= meetup.title %></h2>
-  <p><%= meetup.description %></p>
-  </div>
+
+  <h2 style ='text-align: center'><%= @meetup.title %></h2>
+  <p class="list-date">
+    Listed on <%= @meetup.created_at %> by
+    <%= @meetup.user.email%>
+  </p>
+  <pp><%= @meetup.description %></p>
+
+
+
+
+    <div class="text-center">
+    <%= link_to "Comments", "#", id: "comments-link", class:'btn btn-info' %>
+
+
+  <section id="comments-section">
+    <ol id="comments">
+      <%= render @meetup.comments %>
+    </ol>
+    <%= form_for [@meetup, @meetup.comments.new], remote: true do |f| %>
+      <fieldset>
+
+          <p>
+            <%= f.text_area :content, rows: 2, cols: 60,
+                            placeholder: "Write a comment..." %>
+          </p>
+          <p>
+            <%= f.submit 'Post Comment', class: 'btn btn-lg btn-primary' %>
+          </p>
+
+      </fieldset>
+    <% end %>
+  </section>
+    </div>
+
+
 </div>
